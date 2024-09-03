@@ -1,0 +1,13 @@
+publicacoes/templates/publicacoes/lista_publicacoes.html
+<h1>Publicações</h1>
+<a href="""
+    {% for publicacao in publicacoes %}
+    <li>
+        <h2>{{ publicacao.titulo }}</h2>
+        <img src=" {{ publicacao.foto.url }}" alt="Foto de {{ publicacao.titulo }}">
+    <p>{{ publicacao.descricao }}</p>
+    <a href="{% url 'comentar_publicacao' publicacao.id %}">Comentar</a>
+    <a href="{% url 'curtir_publicacao' publicacao.id %}">Curtir</a>
+    </li>
+    {% endfor %}
+    </ul>
